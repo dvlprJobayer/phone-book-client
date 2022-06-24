@@ -1,0 +1,48 @@
+.page-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+.page-title h1 {
+    margin: 0;
+    color: #222529;
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.page-title .contact-icon {
+    color: #222529;
+    font-size: 3rem;
+    margin-right: 1rem;
+    margin-top: 5px;
+}
+
+.add-contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add-contact h3 {
+    font-size: 2rem;
+    color: #222529;
+}
+
+.add-contact button {
+    background-color: #347bf6;
+    color: #fff;
+    border: none;
+    padding: 12px 2rem;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.contact-search input {
+    width: 100%;
+    padding: 10px 1rem;
+    border: 2px solid #e2e4e8;
+    font-size: 20px;
+    border-radius: 8px;
+}
