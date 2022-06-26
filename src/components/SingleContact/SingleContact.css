@@ -39,6 +39,7 @@
     display: flex;
     align-items: center;
     color: #fff;
+    cursor: pointer;
 }
 
 .contact-right .edit-btn {

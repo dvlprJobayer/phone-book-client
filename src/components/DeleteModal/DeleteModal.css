@@ -1,0 +1,23 @@
+.delete-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-btn-container button {
+    font-size: 20px;
+    padding: 12px 1rem;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btn-container .delete-btn {
+    background-color: red;
+}
+
+.delete-btn-container .cancel-btn {
+    background-color: black;
+    margin-right: 1rem;
+}
