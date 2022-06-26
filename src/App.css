@@ -6,3 +6,7 @@ body {
     max-width: 1140px;
     margin: auto;
 }
+
+.contact-container {
+    margin-top: 1.5rem;
+}

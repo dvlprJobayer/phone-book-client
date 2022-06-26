@@ -1,0 +1,7 @@
+.single-contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    border: 2px solid #e2e4e8;
+}
