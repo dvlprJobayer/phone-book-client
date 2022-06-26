@@ -21,7 +21,7 @@ function App() {
                     allContact.map(contact => <SingleContact contact={contact} />)
                 }
             </div>
-            <AddModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />
+            <AddModal setAllContact={setAllContact} modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />
         </div>
     );
 }

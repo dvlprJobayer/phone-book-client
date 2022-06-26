@@ -7,13 +7,13 @@ import { FaTrashAlt } from 'react-icons/fa';
 const SingleContact = ({ contact }) => {
     return (
         <div className="single-contact">
-            <div>
+            <div className="contact-left">
                 <h2>{contact.firstName} {contact.lastName}</h2>
-                <h4><IoIosCall /> {contact.phone}</h4>
+                <h4><IoIosCall /> <span>{contact.phone}</span></h4>
             </div>
-            <div>
-                <FaPencilAlt />
-                <FaTrashAlt />
+            <div className="contact-right">
+                <button className='edit-btn'><FaPencilAlt /></button>
+                <button className='delete-btn'><FaTrashAlt /></button>
             </div>
         </div>
     );

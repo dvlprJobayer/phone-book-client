@@ -18,7 +18,7 @@ const customStyles = {
 Modal.setAppElement('#root');
 
 
-const PageModal = ({ modalIsOpen, setIsOpen }) => {
+const PageModal = ({ modalIsOpen, setIsOpen, setAllContact }) => {
     function closeModal() {
         setIsOpen(false);
     }
@@ -41,6 +41,7 @@ const PageModal = ({ modalIsOpen, setIsOpen }) => {
                 },
                 body: JSON.stringify(contact)
             }).then(response => response.json()).then(data => {
+                setAllContact(oldContact => [...oldContact, contact]);
                 closeModal();
             }).catch((error) => {
                 alert('Error:', error);
