@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
 import './AddModal.css';
 import { FaTimesCircle } from 'react-icons/fa';
@@ -7,6 +7,8 @@ import { FaTimesCircle } from 'react-icons/fa';
 Modal.setAppElement('#root');
 
 const PageModal = ({ modalIsOpen, setIsOpen, refetch, customStyles }) => {
+    const [loading, setLoading] = useState(false);
+
     function closeModal() {
         setIsOpen(false);
     }
@@ -22,7 +24,8 @@ const PageModal = ({ modalIsOpen, setIsOpen, refetch, customStyles }) => {
             phone
         }
         if (firstName !== '' && lastName !== '' && phone !== '') {
-            fetch('http://localhost:5000/add-contact', {
+            setLoading(true);
+            fetch('https://young-harbor-61514.herokuapp.com/add-contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -30,8 +33,10 @@ const PageModal = ({ modalIsOpen, setIsOpen, refetch, customStyles }) => {
                 body: JSON.stringify(contact)
             }).then(response => response.json()).then(data => {
                 refetch();
+                setLoading(false);
                 closeModal();
             }).catch((error) => {
+                setLoading(false);
                 alert('Error:', error);
             });
         }
@@ -47,15 +52,18 @@ const PageModal = ({ modalIsOpen, setIsOpen, refetch, customStyles }) => {
             <div className="close-btn-container">
                 <FaTimesCircle onClick={closeModal} className="close-btn" />
             </div>
-            <div className="form-container">
-                <h2>Add Contact</h2>
-                <form onSubmit={addContact}>
-                    <input name='firstName' type="text" placeholder='First Name' />
-                    <input name='lastName' type="text" placeholder='Last Name' />
-                    <input name='phone' type="text" placeholder='Phone Number' />
-                    <input className='submit-btn' type="submit" value="Add Contact" />
-                </form>
-            </div>
+            {
+                loading ? <h2>Loading...</h2> :
+                    <div className="form-container">
+                        <h2>Add Contact</h2>
+                        <form onSubmit={addContact}>
+                            <input name='firstName' type="text" placeholder='First Name' />
+                            <input name='lastName' type="text" placeholder='Last Name' />
+                            <input name='phone' type="text" placeholder='Phone Number' />
+                            <input className='submit-btn' type="submit" value="Add Contact" />
+                        </form>
+                    </div>
+            }
         </Modal>
     );
 };

@@ -27,7 +27,7 @@ function App() {
     const [selectContact, setSelectContact] = useState({});
     const [searchInput, setSearchInput] = useState('');
 
-    const { data: allContact, isLoading, refetch } = useQuery('allContact', () => fetch('http://localhost:5000/all-contact').then(res =>
+    const { data: allContact, isLoading, refetch } = useQuery('allContact', () => fetch('https://young-harbor-61514.herokuapp.com/all-contact').then(res =>
         res.json()));
 
     const filteredContact = allContact?.filter(contact => (
