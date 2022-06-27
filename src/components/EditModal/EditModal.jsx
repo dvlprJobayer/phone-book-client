@@ -56,9 +56,9 @@ const EditModal = (props) => {
                     <div className="form-container">
                         <h2>Edit Contact</h2>
                         <form onSubmit={editContact}>
-                            <input name='firstName' type="text" placeholder='First Name' />
-                            <input name='lastName' type="text" placeholder='Last Name' />
-                            <input name='phone' type="text" placeholder='Phone Number' />
+                            <input name='firstName' defaultValue={selectContact.firstName} type="text" placeholder='First Name' />
+                            <input name='lastName' defaultValue={selectContact.lastName} type="text" placeholder='Last Name' />
+                            <input name='phone' defaultValue={selectContact.phone} type="text" placeholder='Phone Number' />
                             <input className='submit-btn' type="submit" value="Edit Contact" />
                         </form>
                     </div>
