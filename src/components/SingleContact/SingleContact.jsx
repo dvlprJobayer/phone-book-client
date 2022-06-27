@@ -4,10 +4,15 @@ import { IoIosCall } from 'react-icons/io';
 import { FaPencilAlt } from 'react-icons/fa';
 import { FaTrashAlt } from 'react-icons/fa';
 
-const SingleContact = ({ contact, setIsOpenTwo, setSelectContact }) => {
+const SingleContact = ({ contact, setIsOpenTwo, setSelectContact, setIsOpenThree }) => {
 
     const openDeleteModal = () => {
         setIsOpenTwo(true);
+        setSelectContact(contact);
+    }
+
+    const openEditModal = () => {
+        setIsOpenThree(true);
         setSelectContact(contact);
     }
 
@@ -18,7 +23,7 @@ const SingleContact = ({ contact, setIsOpenTwo, setSelectContact }) => {
                 <h4><IoIosCall /> <span>{contact.phone}</span></h4>
             </div>
             <div className="contact-right">
-                <button className='edit-btn'><FaPencilAlt /></button>
+                <button onClick={openEditModal} className='edit-btn'><FaPencilAlt /></button>
                 <button onClick={openDeleteModal} className='delete-btn'><FaTrashAlt /></button>
             </div>
         </div>

@@ -4,6 +4,7 @@ import PageHeader from './components/PageHeader/PageHeader';
 import AddModal from './components/AddModal/AddModal';
 import SingleContact from './components/SingleContact/SingleContact';
 import DeleteModal from './components/DeleteModal/DeleteModal';
+import EditModal from './components/EditModal/EditModal';
 
 
 const customStyles = {
@@ -21,6 +22,7 @@ const customStyles = {
 function App() {
     const [modalIsOpen, setIsOpen] = useState(false);
     const [modalIsOpenTwo, setIsOpenTwo] = useState(false);
+    const [modalIsOpenThree, setIsOpenThree] = useState(false);
     const [selectContact, setSelectContact] = useState({});
     const [allContact, setAllContact] = useState([]);
     useEffect(() => {
@@ -38,6 +40,7 @@ function App() {
                         key={contact._id}
                         contact={contact}
                         setIsOpenTwo={setIsOpenTwo}
+                        setIsOpenThree={setIsOpenThree}
                         setSelectContact={setSelectContact}
                     />)
                 }
@@ -47,6 +50,13 @@ function App() {
                 modalIsOpen={modalIsOpen}
                 setIsOpen={setIsOpen}
                 customStyles={customStyles}
+            />
+            <EditModal
+                customStyles={customStyles}
+                modalIsOpenThree={modalIsOpenThree}
+                setIsOpenThree={setIsOpenThree}
+                selectContact={selectContact}
+                setAllContact={setAllContact}
             />
             <DeleteModal
                 customStyles={customStyles}
