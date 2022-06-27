@@ -6,7 +6,7 @@ import { FaTimesCircle } from 'react-icons/fa';
 
 Modal.setAppElement('#root');
 
-const PageModal = ({ modalIsOpen, setIsOpen, setAllContact, customStyles }) => {
+const PageModal = ({ modalIsOpen, setIsOpen, refetch, customStyles }) => {
     function closeModal() {
         setIsOpen(false);
     }
@@ -29,7 +29,7 @@ const PageModal = ({ modalIsOpen, setIsOpen, setAllContact, customStyles }) => {
                 },
                 body: JSON.stringify(contact)
             }).then(response => response.json()).then(data => {
-                setAllContact(oldContact => [...oldContact, contact]);
+                refetch();
                 closeModal();
             }).catch((error) => {
                 alert('Error:', error);

@@ -2,7 +2,7 @@ import React from 'react';
 import './PageHeader.css';
 import { MdPermContactCalendar } from 'react-icons/md';
 
-const PageHeader = ({ openModal }) => {
+const PageHeader = ({ openModal, setSearchInput }) => {
     return (
         <>
             <div className="page-title">
@@ -14,7 +14,7 @@ const PageHeader = ({ openModal }) => {
                 <button onClick={() => openModal(true)}>+ Add Contact</button>
             </div>
             <div className="contact-search">
-                <input type="text" placeholder='Search for contact by name' />
+                <input onChange={e => setSearchInput(e.target.value)} type="text" placeholder='Search for contact by Last Name....' />
             </div>
         </>
     );

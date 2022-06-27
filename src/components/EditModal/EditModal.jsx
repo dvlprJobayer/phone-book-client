@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import { FaTimesCircle } from 'react-icons/fa';
 
 const EditModal = (props) => {
-    const { customStyles, modalIsOpenThree, setIsOpenThree, selectContact, setAllContact } = props;
+    const { customStyles, modalIsOpenThree, setIsOpenThree, selectContact, refetch } = props;
 
     function closeModal() {
         setIsOpenThree(false);
@@ -11,9 +11,9 @@ const EditModal = (props) => {
 
     const editContact = event => {
         event.preventDefault();
-        const firstName = event.target.firstName.value;
-        const lastName = event.target.lastName.value;
-        const phone = event.target.phone.value;
+        const firstName = event.target.firstName.value || selectContact.firstName;
+        const lastName = event.target.lastName.value || selectContact.lastName;
+        const phone = event.target.phone.value || selectContact.phone;
         const contact = {
             firstName,
             lastName,
@@ -27,7 +27,7 @@ const EditModal = (props) => {
                 },
                 body: JSON.stringify(contact)
             }).then(response => response.json()).then(data => {
-                setAllContact(oldContact => [...oldContact, contact]);
+                refetch();
                 closeModal();
             }).catch((error) => {
                 alert('Error:', error);

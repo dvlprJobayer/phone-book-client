@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import './DeleteModal.css';
 
 const DeleteModal = (props) => {
-    const { modalIsOpenTwo, setIsOpenTwo, customStyles, selectContact, setAllContact } = props;
+    const { modalIsOpenTwo, setIsOpenTwo, customStyles, selectContact, refetch } = props;
 
     function closeModal() {
         setIsOpenTwo(false);
@@ -13,9 +13,7 @@ const DeleteModal = (props) => {
         fetch(`http://localhost:5000/delete-contact/${selectContact._id}`, {
             method: 'DELETE'
         }).then(res => res.json()).then(data => {
-            setAllContact(oldContact => (
-                oldContact.filter(contact => contact !== selectContact)
-            ))
+            refetch();
             closeModal();
         })
     }
